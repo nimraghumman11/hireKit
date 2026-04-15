@@ -1,0 +1,84 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-interview_kit}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${POSTGRES_DB:-interview_kit}
+    # Host 5433 avoids clash with a local Windows PostgreSQL install on 5432 (pgAdmin would connect to the wrong server).
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-interview_kit}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - '3000:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      # DATABASE_URL is built in backend/docker-entrypoint.sh from POSTGRES_* (handles @ in password; avoids wrong .env localhost/postgres user).
+      REDIS_URL: redis://redis:6379
+      # Override localhost URLs from .env — inside Docker, services are reached by their service name.
+      AI_SERVICE_URL: http://ai-service:8000
+    # No bind mount by default — mounting the Windows project tree into Docker is very slow
+    # (often 10–60+ min on "Creating"). Use docker-compose.dev.yml for live-reload against host code.
+
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - '8000:8000'
+    environment:
+      FAISS_INDEX_PATH: /app/data/faiss_index
+      PDF_STORAGE_PATH: /app/data/pdfs
+      AI_SERVICE_BASE_URL: http://localhost:8000
+    volumes:
+      - ai_data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - '5173:80'
+    depends_on:
+      - backend
+    environment:
+      VITE_API_URL: http://localhost:3000
+
+volumes:
+  postgres_data:
+  redis_data:
+  ai_data:

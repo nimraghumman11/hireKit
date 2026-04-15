@@ -1,0 +1,14 @@
+# Optional overlay: bind-mount host source for hot-reload while developing.
+# Usage: docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+# On Windows this can make container startup very slow; omit this file for faster `docker compose up`.
+
+services:
+  backend:
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  ai-service:
+    volumes:
+      - ./ai-service:/app
+      - ai_data:/app/data

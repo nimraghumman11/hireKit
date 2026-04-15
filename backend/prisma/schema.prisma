@@ -1,0 +1,61 @@
+generator client {
+  provider      = "prisma-client-js"
+  // Alpine 3.17+ uses OpenSSL 3; default musl engine expects libssl 1.1 and crashes at runtime.
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  password      String
+  role          String         @default("hiring_manager")
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  interviewKits InterviewKit[]
+  aiLogs        AILog[]
+
+  @@map("users")
+}
+
+model InterviewKit {
+  id              String    @id @default(uuid())
+  userId          String    @map("user_id")
+  user            User      @relation(fields: [userId], references: [id])
+  roleTitle       String    @map("role_title")
+  department      String
+  experienceLevel String    @map("experience_level")
+  workMode        String    @default("remote") @map("work_mode")
+  teamSize        String?   @map("team_size")
+  generatedOutput Json?     @map("generated_output")
+  pdfUrl          String?   @map("pdf_url")
+  docxUrl         String?   @map("docx_url")
+  shareToken      String?   @unique @map("share_token")
+  status          String    @default("draft")
+  deletedAt       DateTime? @map("deleted_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  aiLogs          AILog[]
+
+  @@map("interview_kits")
+}
+
+model AILog {
+  id              String   @id @default(uuid())
+  kitId           String   @map("kit_id")
+  userId          String   @map("user_id")
+  user            User     @relation(fields: [userId], references: [id])
+  kit             InterviewKit @relation(fields: [kitId], references: [id])
+  requestPayload  Json     @map("request_payload")
+  responsePayload Json?    @map("response_payload")
+  status          String
+  durationMs      Int?     @map("duration_ms")
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@map("ai_logs")
+}

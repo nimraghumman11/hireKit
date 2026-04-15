@@ -1,0 +1,46 @@
+# --- Environment files (never commit secrets) ---
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# --- Node / frontend / backend ---
+**/node_modules/
+frontend/dist/
+backend/dist/
+*.tsbuildinfo
+
+# --- Python / ai-service ---
+ai-service/venv/
+ai-service/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# --- AI generated/runtime data ---
+ai-service/data/faiss_index/
+ai-service/data/pdfs/
+
+# --- Test artifacts ---
+**/coverage/
+e2e/playwright-report/
+e2e/test-results/
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- IDE / OS ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# --- Cursor local project metadata ---
+.cursor/
+
