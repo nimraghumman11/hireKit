@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs wc:*)",
+      "Bash(xargs grep:*)",
+      "Bash(python --version)",
+      "Bash(python3 --version)",
+      "Bash(pip show:*)",
+      "Bash(pip list:*)",
+      "Read(//c/Users/TK-LPT-539/AppData/Local/Programs/Python//**)",
+      "Bash(py -3 --version)",
+      "Bash(py -3 -m pip --version)",
+      "Bash(py -3 -m pip list)",
+      "Bash(py -3 -m venv venv)",
+      "Bash(./venv/Scripts/pip install:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(curl:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_click"
+    ]
+  }
+}

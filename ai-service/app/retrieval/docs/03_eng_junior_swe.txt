@@ -1,0 +1,1 @@
+Junior Software Engineer competencies: Writes clean, readable code following established patterns. Completes well-scoped tickets with moderate guidance. Asks for help early and communicates blockers. Learns quickly from code reviews and feedback. Understands version control, basic CI/CD, and testing fundamentals. Growing from tutorials to production code.

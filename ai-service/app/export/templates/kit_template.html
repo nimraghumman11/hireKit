@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interview Kit — {{ kit.roleTitle }}</title>
+  <style>
+    body { font-family: 'Helvetica Neue', sans-serif; color: #0f172a; margin: 0; padding: 0; }
+    .cover { background: #4f46e5; color: white; padding: 60px 48px; min-height: 200px; }
+    .cover h1 { font-size: 32px; margin: 0 0 8px; }
+    .cover p { font-size: 14px; opacity: 0.85; margin: 4px 0; }
+    .section { padding: 32px 48px; border-bottom: 1px solid #e2e8f0; }
+    .section h2 { font-size: 20px; color: #4f46e5; margin: 0 0 16px; }
+    .section h3 { font-size: 15px; color: #334155; margin: 16px 0 8px; }
+    ul { margin: 0; padding-left: 20px; }
+    li { margin-bottom: 4px; font-size: 13px; line-height: 1.6; }
+    .badge { display: inline-block; background: #e0e7ff; color: #4338ca; border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600; margin-right: 4px; }
+    .question-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+    .question-card p { font-size: 13px; margin: 0 0 8px; font-weight: 600; }
+    .question-card .meta { font-size: 12px; color: #64748b; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { background: #f8fafc; text-align: left; padding: 8px 12px; font-size: 12px; color: #64748b; border-bottom: 1px solid #e2e8f0; }
+    td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; }
+    @page { margin: 0; }
+  </style>
+</head>
+<body>
+
+<!-- Cover Page -->
+<div class="cover">
+  <h1>Interview Kit</h1>
+  <p>{{ kit.roleTitle }}</p>
+  <p>{{ kit.department }} · {{ kit.experienceLevel }} · {{ kit.jobDescription.workMode if kit.jobDescription else '' }}</p>
+</div>
+
+<!-- Job Description -->
+{% if kit.jobDescription %}
+<div class="section">
+  <h2>Job Description</h2>
+  <p style="font-size:13px;line-height:1.7;color:#334155;">{{ kit.jobDescription.summary }}</p>
+  <h3>Responsibilities</h3>
+  <ul>{% for r in kit.jobDescription.responsibilities %}<li>{{ r }}</li>{% endfor %}</ul>
+  <h3>Required Skills</h3>
+  <div>{% for s in kit.jobDescription.requiredSkills %}<span class="badge">{{ s }}</span>{% endfor %}</div>
+  {% if kit.jobDescription.niceToHaveSkills %}
+  <h3>Nice to Have</h3>
+  <div>{% for s in kit.jobDescription.niceToHaveSkills %}<span class="badge" style="background:#f1f5f9;color:#475569;">{{ s }}</span>{% endfor %}</div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Behavioral Questions -->
+{% if kit.behavioralQuestions %}
+<div class="section">
+  <h2>Behavioral Questions</h2>
+  {% for q in kit.behavioralQuestions %}
+  <div class="question-card">
+    <p>{{ q.question }}</p>
+    <div class="meta"><strong>Competency:</strong> {{ q.competency }}</div>
+    <div class="meta"><strong>Evaluation:</strong> {{ q.evalCriteria }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Technical Questions -->
+{% if kit.technicalQuestions %}
+<div class="section">
+  <h2>Technical Questions</h2>
+  {% for q in kit.technicalQuestions %}
+  <div class="question-card">
+    <p>{{ q.question }}</p>
+    <div class="meta">
+      <span class="badge">{{ q.difficulty }}</span>
+      <span class="badge" style="background:#f1f5f9;color:#475569;">{{ q.topic }}</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Scorecard -->
+{% if kit.scorecard %}
+<div class="section">
+  <h2>Scorecard</h2>
+  <table>
+    <tr><th>Competency</th><th>Weight</th><th>Score (1–5)</th><th>Notes</th></tr>
+    {% for item in kit.scorecard %}
+    <tr>
+      <td>{{ item.competency }}</td>
+      <td>{{ (item.weight * 100)|int }}%</td>
+      <td>{{ item.score or '—' }}</td>
+      <td>{{ item.notes or '' }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endif %}
+
+<!-- Rubric -->
+{% if kit.rubric %}
+<div class="section">
+  <h2>Skills Rubric</h2>
+  {% for item in kit.rubric %}
+  <h3>{{ item.skill }}</h3>
+  <table>
+    <tr><th>Novice</th><th>Intermediate</th><th>Advanced</th><th>Expert</th></tr>
+    <tr>
+      <td>{{ item.proficiencyLevels.novice }}</td>
+      <td>{{ item.proficiencyLevels.intermediate }}</td>
+      <td>{{ item.proficiencyLevels.advanced }}</td>
+      <td>{{ item.proficiencyLevels.expert }}</td>
+    </tr>
+  </table>
+  {% endfor %}
+</div>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+Mid-level Software Engineer competencies: Independently builds and ships features across a known stack. Identifies and fixes bugs without significant guidance. Understands common design patterns and can reason about trade-offs. Communicates progress and blockers proactively. Participates in on-call and incident response. Grows in scope from individual tickets to small features.

@@ -1,0 +1,145 @@
+{
+  "01_eng_senior_swe.txt": {
+    "source": "seed",
+    "role_type": "engineering",
+    "seniority": "senior"
+  },
+  "02_eng_mid_swe.txt": {
+    "source": "seed",
+    "role_type": "engineering",
+    "seniority": "mid"
+  },
+  "03_eng_junior_swe.txt": {
+    "source": "seed",
+    "role_type": "engineering",
+    "seniority": "junior"
+  },
+  "04_eng_lead_staff.txt": {
+    "source": "seed",
+    "role_type": "engineering",
+    "seniority": "lead"
+  },
+  "05_backend_technical.txt": {
+    "source": "seed",
+    "role_type": "backend",
+    "type": "technical"
+  },
+  "06_frontend_technical.txt": {
+    "source": "seed",
+    "role_type": "frontend",
+    "type": "technical"
+  },
+  "07_fullstack_mid.txt": {
+    "source": "seed",
+    "role_type": "fullstack",
+    "seniority": "mid"
+  },
+  "08_devops_sre_mid.txt": {
+    "source": "seed",
+    "role_type": "devops_sre",
+    "seniority": "mid"
+  },
+  "09_data_engineering_mid.txt": {
+    "source": "seed",
+    "role_type": "data_engineering",
+    "seniority": "mid"
+  },
+  "10_ml_ds_technical.txt": {
+    "source": "seed",
+    "role_type": "ml_ds",
+    "type": "technical"
+  },
+  "11_security_mid.txt": {
+    "source": "seed",
+    "role_type": "security",
+    "seniority": "mid"
+  },
+  "12_product_mid.txt": {
+    "source": "seed",
+    "role_type": "product",
+    "seniority": "mid"
+  },
+  "13_design_mid.txt": {
+    "source": "seed",
+    "role_type": "design",
+    "seniority": "mid"
+  },
+  "14_eng_manager.txt": {
+    "source": "seed",
+    "role_type": "management",
+    "seniority": "manager"
+  },
+  "15_behavioral_star.txt": {
+    "source": "seed",
+    "type": "behavioral",
+    "framework": "STAR"
+  },
+  "16_behavioral_leadership.txt": {
+    "source": "seed",
+    "type": "behavioral",
+    "competency": "leadership"
+  },
+  "17_behavioral_collaboration.txt": {
+    "source": "seed",
+    "type": "behavioral",
+    "competency": "collaboration"
+  },
+  "18_behavioral_problem_solving.txt": {
+    "source": "seed",
+    "type": "behavioral",
+    "competency": "problem_solving"
+  },
+  "19_behavioral_follow_up.txt": {
+    "source": "seed",
+    "type": "behavioral",
+    "framework": "follow_up"
+  },
+  "20_tech_system_design.txt": {
+    "source": "seed",
+    "type": "technical",
+    "framework": "system_design"
+  },
+  "21_tech_api_design.txt": {
+    "source": "seed",
+    "type": "technical",
+    "topic": "api_design"
+  },
+  "22_tech_databases.txt": {
+    "source": "seed",
+    "type": "technical",
+    "topic": "databases"
+  },
+  "23_tech_distributed_systems.txt": {
+    "source": "seed",
+    "type": "technical",
+    "topic": "distributed_systems"
+  },
+  "24_inclusive_language_guidelines.txt": {
+    "source": "seed",
+    "type": "inclusive_language"
+  },
+  "25_inclusive_qualifications.txt": {
+    "source": "seed",
+    "type": "inclusive_language",
+    "topic": "qualifications"
+  },
+  "26_competency_framework.txt": {
+    "source": "seed",
+    "type": "competency_framework"
+  },
+  "27_scoring_guide.txt": {
+    "source": "seed",
+    "type": "scoring_guide"
+  },
+  "28_salary_swe_us.txt": {
+    "source": "seed",
+    "type": "salary_benchmarks",
+    "market": "US"
+  },
+  "29_salary_product_design_us.txt": {
+    "source": "seed",
+    "type": "salary_benchmarks",
+    "market": "US",
+    "domain": "product_design"
+  }
+}

@@ -1,0 +1,106 @@
+- generic [ref=e25]:
+  - complementary [ref=e26]:
+    - generic [ref=e27]:
+      - img [ref=e29]
+      - generic [ref=e31]: Interview Kit
+    - navigation "Main navigation" [ref=e32]:
+      - link "Dashboard" [ref=e33] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e35]
+        - generic [ref=e37]: Dashboard
+      - link "New Kit" [ref=e38] [cursor=pointer]:
+        - /url: /kits/new
+        - img [ref=e40]
+        - generic [ref=e42]: New Kit
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - paragraph [ref=e45]: Avivit
+        - paragraph [ref=e46]: nimra.ghumman+avivit@tkxel.com
+      - button "Sign out" [ref=e47] [cursor=pointer]:
+        - img [ref=e48]
+        - generic [ref=e50]: Sign out
+  - generic [ref=e51]:
+    - banner [ref=e52]:
+      - button "Toggle sidebar" [ref=e53] [cursor=pointer]:
+        - img [ref=e54]
+      - heading "Dashboard" [level=1] [ref=e56]
+      - button "New Kit" [ref=e58] [cursor=pointer]:
+        - img [ref=e59]
+        - text: New Kit
+    - main [ref=e61]:
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - paragraph [ref=e64]: Your interview kits
+          - paragraph [ref=e65]: Search and filter saved roles, then open a kit to review questions, scorecard, and exports.
+        - generic [ref=e67]:
+          - generic [ref=e70]:
+            - generic:
+              - img
+            - textbox "Search kits" [ref=e71]:
+              - /placeholder: Search by role title…
+          - combobox "Filter by department" [ref=e74]:
+            - option "All departments" [selected]
+            - option "Engineering"
+            - option "Product"
+            - option "Design"
+            - option "Marketing"
+            - option "Sales"
+            - option "Operations"
+            - option "Finance"
+            - option "HR"
+          - combobox "Filter by level" [ref=e77]:
+            - option "All levels" [selected]
+            - option "Junior"
+            - option "Mid"
+            - option "Senior"
+            - option "Lead"
+            - option "Principal"
+            - option "Director"
+          - combobox "Sort kits" [ref=e80]:
+            - option "Newest first" [selected]
+            - option "Oldest first"
+            - option "Role title A-Z"
+        - generic [ref=e82]:
+          - paragraph [ref=e83]: 2 kits
+          - paragraph [ref=e84]: Ready to open, duplicate, or export
+        - generic [ref=e85]:
+          - article [ref=e86]:
+            - generic [ref=e87]:
+              - generic [ref=e88]:
+                - heading "Engineering Manager" [level=3] [ref=e89]
+                - paragraph [ref=e90]:
+                  - img [ref=e91]
+                  - text: 2h ago
+              - generic [ref=e93]: generated
+            - generic [ref=e94]:
+              - generic [ref=e95]: Engineering
+              - generic [ref=e96]: lead
+              - generic [ref=e97]: 26 questions
+            - generic [ref=e98]:
+              - button "View" [ref=e99] [cursor=pointer]
+              - button "Duplicate kit" [ref=e100] [cursor=pointer]:
+                - img [ref=e101]
+              - button "Export PDF" [ref=e103] [cursor=pointer]:
+                - img [ref=e104]
+              - button "Delete kit" [ref=e106] [cursor=pointer]:
+                - img [ref=e107]
+          - article [ref=e109]:
+            - generic [ref=e110]:
+              - generic [ref=e111]:
+                - heading "Lead Backend Engineer" [level=3] [ref=e112]
+                - paragraph [ref=e113]:
+                  - img [ref=e114]
+                  - text: 1d ago
+              - generic [ref=e116]: generated
+            - generic [ref=e117]:
+              - generic [ref=e118]: Engineering
+              - generic [ref=e119]: lead
+              - generic [ref=e120]: 18 questions
+            - generic [ref=e121]:
+              - button "View" [ref=e122] [cursor=pointer]
+              - button "Duplicate kit" [ref=e123] [cursor=pointer]:
+                - img [ref=e124]
+              - button "Export PDF" [ref=e126] [cursor=pointer]:
+                - img [ref=e127]
+              - button "Delete kit" [ref=e129] [cursor=pointer]:
+                - img [ref=e130]
